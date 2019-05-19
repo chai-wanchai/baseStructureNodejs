@@ -13,3 +13,7 @@ This project is base structure for nodejs application and example that use docke
  ## How to build image with docker
   1. open cmd/terminal of root project
   2. run command ``` docker build --no-cache -t baseNodejs . ```
+
+## Example Application
+ * GET / ==> Web application for view jobs
+ * GET /api/v1/users ==> Get user from DB
