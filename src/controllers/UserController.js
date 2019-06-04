@@ -1,4 +1,4 @@
-import usersModel from '../../db/models/UserModel'
+import usersModel from '../db/models/UserModel'
 
 export async function getUserProfiles(req, res, next) {
   let data = await usersModel.find().exec()
