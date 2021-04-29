@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import dbConnect from '../connectDB'
+import dbConnect from '../db/connectDB'
 dbConnect()
 const Schema = mongoose.Schema;
 let UsersSchema = new Schema({

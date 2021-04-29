@@ -1,5 +1,5 @@
 import express from 'express'
-import router from './src/routes/routes'
+import router from './routes/routes'
 import bodyParser from 'body-parser' 
 import path from 'path'
 const app = express()
