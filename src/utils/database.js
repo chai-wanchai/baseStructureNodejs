@@ -1,8 +1,7 @@
 import { Sequelize } from 'sequelize'
 import { config } from '../config/config'
-
+import model from '../models'
 export class Database {
-
 	async connect() {
 		const { database } = config
 		const configDB = {
@@ -16,6 +15,8 @@ export class Database {
 		const sequelize = new Sequelize(configDB)
 		try {
 			await sequelize.authenticate();
+			model(sequelize)
+			sequelize.sync()
 			console.log('Connection has been established successfully.');
 		} catch (error) {
 			console.error('Unable to connect to the database:', error);
