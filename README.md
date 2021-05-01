@@ -16,6 +16,7 @@
 ## API Spec
 
 GET /api/teachers
+
 POST /api/teacher
   ```javascript
   Request Body
@@ -27,6 +28,7 @@ POST /api/teacher
   ```
 
 GET /api/courses
+
 POST /api/:teacher_id/course
  ```javascript
   Request Body
