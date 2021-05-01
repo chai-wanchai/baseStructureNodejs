@@ -20,7 +20,7 @@ export class Database {
 			await sequelize.authenticate();
 			this.connection = sequelize
 			model(sequelize)
-			sequelize.sync({ force: true })
+			sequelize.sync()
 			console.log('Connection has been established successfully.');
 		} catch (error) {
 			console.error('Unable to connect to the database:', error);

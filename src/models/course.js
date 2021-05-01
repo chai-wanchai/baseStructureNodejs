@@ -1,7 +1,6 @@
 
 
 import { DataTypes } from 'sequelize'
-import Teacher from "./teacher";
 
 export default (sequelize) => {
 	const Course = sequelize.define('Course', {
