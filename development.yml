@@ -6,30 +6,30 @@ services:
     image: basenodejs
     build:
       context: .
-      dockerfile: ./docker/development/Dockerfile
+      dockerfile: Dockerfile
     restart: always
     volumes:
-      - '.:/src'
+      - '.:/app'
     ports:
       - '3000:3000'
     environment:
       - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-    env_file:
-      - ./envs/development.env
     links:
-      - mongodb
+      - postgres_db
     depends_on:
-      - mongodb
+      - postgres_db
   
-  mongodb:
-    image: mongo:latest
-    container_name: "mongodb_test_app"
+  postgres_db:
+    image: postgres:9.6.17-alpine
+    container_name: "postgres_db"
     restart: always
-    # environment:
-    #   - MONGO_DATA_DIR=/data/db
-    #   - MONGO_LOG_DIR=/dev/null
-    volumes:
-      - ./data/db:/data/db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: P@ssw0rd
+      POSTGRES_DB: codemanday   
+      PGDATA: /data/postgres   
     ports:
-      - 27017:27017
+      - 5432:5432
+volumes:
+    postgres_database:
+        external: true
